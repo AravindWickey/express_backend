@@ -1,14 +1,12 @@
 const mongo = require('../shared/connect');
-const {ObjectId} = require("bson")
+const roomDetailsVar = require("../models/roomDetailsModel");
+const { ObjectId } = require("bson");
 
+module.exports.getroomDetails = async (req, res, next) => {
+  var data = await roomDetailsVar.find().toArray();
+  res.send(data);
 
-module.exports.getroomDetails = async(req,res,next)=>{
-    try{
-        var data = await mongo.find().toArray();
-        res.send(data);
-    }catch(err){
-        console.log(err);
-        res.status(500).send(err);
-    }
-}
+  console.log(err);
+  res.status(500).send(err);
+};
 
