@@ -4,7 +4,7 @@ const {ObjectId} = require("bson")
 
 module.exports.getroomDetails = async(req,res,next)=>{
     try{
-        var data = await mongo.db.collection("roomDetails").find().toArray();
+        var data = await mongo.find().toArray();
         res.send(data);
     }catch(err){
         console.log(err);
