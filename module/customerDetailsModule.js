@@ -31,11 +31,11 @@ module.exports.createCustomer = async (req, res, next) => {
     const salt = await bcrypt.genSalt(10);
     req.body.password = await bcrypt.hash(req.body.password, salt);
     
-    const customerDetails = new customerDetailsModel({
+    const customerDetails = new customerDetailsVar({
       name: req.body.name,
       mail: req.body.mail,
-      password: req.body.password
-  })
+      password: req.body.password,
+    });
   var response = await customerDetails.save();
   res.send(response);
 }
